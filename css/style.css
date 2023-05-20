@@ -1,0 +1,86 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+#circulo-load{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 200px;
+    height: 200px;
+    border: 6px solid #DCDCDC;
+	border-left-color: #00CC99;
+	border-radius: 50%;
+    z-index: 90;
+    animation: giro 600ms infinite linear;
+    display: none;
+}
+.opc{
+    z-index: -1;
+    animation: bulor 1.8s forwards ease-out;
+    pointer-events: none;
+}
+
+@keyframes bulor{
+    to{
+        filter: blur(8px);
+    }
+}
+
+@keyframes giro{
+    0%{
+        transform: rotate(360deg);
+    }
+}
+
+.center-ent-cri{
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 400px;
+    margin-top: 20%;
+    transform: translateY(-50%);
+}
+
+.inp{
+    margin-top: 30px;
+}
+
+#circulo{
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    border: solid  #9a2424 5px;
+    border-radius: 50%;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    top: -300px;
+    background: url('https://th.bing.com/th/id/R.f1c3d4a4246011fee1cd272008f1a997?rik=SJDwyEM59ezyng&riu=http%3a%2f%2fbrasilopenbadge.com.br%2fupload%2ffotos%2fsem_foto.jpg&ehk=hO8KXJr1oAfKNl0u2PjmAkFDz90u8pzZjVg3WX0JqPA%3d&risl=&pid=ImgRaw&r=0');
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+     -o-background-size: cover;
+    background-size: cover;
+}
+#center-l{
+    position: absolute;
+    height: 150px;
+    text-align: center;
+    right: 0;
+    left: 0;
+    top: 60px;
+    bottom: 0;
+    margin: auto;
+    width: 300px;
+}
+
+.btn-outline-secondary{
+    margin-top: 30px;
+}

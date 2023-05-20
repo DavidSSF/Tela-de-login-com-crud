@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <title>Log-CRUD</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body {
+      background: url('https://wallpapercave.com/wp/wp9971989.jpg') center no-repeat fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+
+    .cor-nome {
+      color: rgb(90, 90, 229);
+    }
+
+    .ver {
+      pointer-events: none;
+      text-align: center;
+      color: red;
+    }
+
+    .ver::placeholder {
+      text-align: center;
+      color: red;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div id="sum_load">
+    <div class="container">
+
+      <nav class="navbar navbar-dark navbar-expand-lg">
+
+        <a class="navbar-brand" style="cursor: pointer;color: #fff;" id="return_inicio">Info<span
+            style="color: rgb(236, 27, 219);">T</span>ech<span style="color: rgb(236, 27, 219);">H</span>ub</span></a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado"
+          aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
+
+          <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+        <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+
+          <ul class="navbar-nav mr-auto"></ul>
+
+          <form class="form-inline my-2 my-lg-0">
+
+            <!-- Botões quando estiver off -->
+            <div id="not-in">
+
+              <button class="btn btn-outline-light my-2 my-sm-0" type="button" style="margin-right: 10px;"
+                id="btn-Entrar-inicio">Entrar</button>
+              <button class="btn btn-dark my-2 my-sm-0" type="button" id="btn-Criar-inicio"
+                style="background-color: rgb(219, 25, 203);">Criar Conta</button>
+
+            </div>
+
+            <!-- Botões quando estiver on -->
+            <div id="not-out" style="display: none;">
+
+              <button class="btn btn-outline-light my-2 my-sm-0" type="button" style="margin-right: 10px;"
+                id="ver-perfil">Ver perfil</button>
+              <button class="btn btn-primary my-2 my-sm-0" type="button" id="sair">Sair</button>
+
+            </div>
+
+          </form>
+
+        </div>
+
+      </nav>
+    </div>
+
+    <form>
+
+      <!-- Área de Logar na conta -->
+      <div id="entrar" class="container" style="display: none;">
+
+        <div class="center-ent-cri">
+          <h1 style="color: #fff;" class="h3 mb-3 font-weight-normal">Entrar</h1>
+          <div class="form-label-group">
+            <input type="text" id="nomeUs-Entrar" class="form-control inp" placeholder="Login">
+          </div>
+
+          <div class="form-label-group">
+            <input type="password" id="Senha-Entrar" class="form-control inp" placeholder="Senha">
+          </div>
+
+          <div class="checkbox mb-3">
+            <label>
+              <input id="check" type="checkbox" value="lembrar de mim" style="margin-top: 30px;"><span
+                style="color: rgb(255, 255, 255);"> Lembrar de mim</span>
+            </label>
+          </div>
+          <button class="btn btn-lg btn-primary btn-block inp" type="submit" id="btn-Entrar">Entrar</button>
+        </div>
+
+      </div>
+
+
+      <!-- Área de criar conta -->
+      <div id="criar" class="container" style="display: none;">
+        <div class="center-ent-cri">
+          <h1 style="color: #fff;" class="h3 mb-3 font-weight-normal">Criar Conta</h1>
+          <div class="form-label-group">
+            <input type="text" id="nomeUs-Criar" class="form-control inp" placeholder="Nome / Email">
+          </div>
+
+          <div class="form-label-group">
+            <input type="password" id="Senha-Criar" class="form-control inp" placeholder="Senha">
+          </div>
+
+          <div class="form-label-group">
+            <input type="password" id="CSenha-Criar" class="form-control inp" placeholder="Confirmar Senha">
+          </div>
+
+          <button class="btn btn-lg btn-primary btn-block inp" type="button" id="btn-Criar-conta">Criar</button>
+        </div>
+      </div>
+
+    </form>
+
+    <!-- Tela inicial -->
+    <div id="inicio">
+
+      <div class="container" style="margin-top: 110px;">
+        <h1 style="color:#fff">Let's build from here</h1>
+        <p class=" mb-6 text-muted" style="color:#fff">(or not)</p>
+      </div>
+      <div class="container">
+        <div class="card container" style="width: 18rem; background-color: rgb(0, 0, 0, 0.314); margin-top:50px; ">
+          <div class="card-body">
+            <h5 class="card-title" style="color:#fff">Formularão</h5>
+            <p class="card-text" style="color:#fff">Formulário é um documento pré-impresso onde são 
+              preenchidos os dados e informações, que permite a formalização das comunicações, o registro 
+              e o controle das atividades das organizações, como empresas ou instituições estatais.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Formulário -->
+    <div id="formulario" style="display: none;">
+      <div class="container center-ent-cri cor-nome" style="position: absolute;width: 50%;">
+        <form>
+
+          <div class="form-row">
+            <div class="form-group col-md-12 ">
+              <label for="">Nome: <span style="color: red;">*</span></label>
+              <input type="name" class="form-control" id="nome">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="">Nome Mãe:</label>
+              <input type="name" class="form-control" id="nome_mae">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="">Nome Pai:</label>
+              <input type="name" class="form-control" id="nome_pai">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-4">
+              <label for="">Cidade: <span style="color: red;">*</span></label>
+              <input type="name" class="form-control" id="cidade">
+            </div>
+            <div class="form-group col-md-4">
+              <label for="">Curso: <span style="color: red;">*</span></label>
+              <select type="" class="form-control" id="curso">
+                <option selected>Selecione o Curso:</option>
+                <option>Informática</option>
+                <option>Enfermagem</option>
+                <option>Comércio</option>
+                <option>Administração</option>
+              </select>
+            </div>
+            <div class="form-group col-md-4">
+              <label for="">Idade <span style="color: red;">*</span></label>
+              <input type="number" class="form-control" id="idade">
+            </div>
+          </div>
+
+          <button type="button" id="btn-enviar-formu" class="btn btn-primary" data-toggle="modal"
+            data-target="#modal">
+            Enviar dado
+          </button>
+
+          <button type="button" id="atualizar-btn" class="btn btn-primary" style="display: none;" data-toggle="modal"
+            data-target="#modal">
+            Atualizar
+          </button>
+
+          <button type="button" id="voltar" style="display: none;" class="btn btn-primary">
+            Voltar
+          </button>
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Área do Logado -->
+  <div id="retangolo" style="display: none;">
+
+    <div id="circulo"></div>
+
+    <div id="center-l">
+
+      <button type="button" id="btn-respond" class="btn btn-outline-secondary">Responder o Formulário</button>
+
+      <div id="com-formu" style="display: none;">
+
+        <button type="button" id="btn-verfor" class="btn btn-outline-secondary">Ver o Formulário</button>
+
+        <button type="button" id="btn-atzfor" class="btn btn-outline-secondary">Atualizar o Formulário</button>
+
+        <button type="button" id="btn-delfor" class="btn btn-outline-secondary">Deletar o Formulário</button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Load -->
+  <div id="circulo-load"></div>
+
+  <!-- Donos do site -->
+  <p class="mt-5 mb-3 text-muted text-center" style="position: absolute; right: 0;left: 0 ;margin: auto ; bottom: 0;">©
+    <a class="mt-5 mb-3 text-muted text-center" href="https://github.com/0AndersonMelo0">Anderson</a> - <a href="https://github.com/DavidSSF" class="mt-5 mb-3 text-muted text-center">David</a></p>
+
+  <script src="js/tela-inicial.js"></script>
+  <script src="js/criar.js"></script>
+  <script src="js/entrar.js"></script>
+  <script src="js/logado.js"></script>
+  <script src="js/CRUD.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
